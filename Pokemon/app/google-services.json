@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "706433915590",
+    "firebase_url": "https://pokemonfirebase.firebaseio.com",
+    "project_id": "pokemonfirebase",
+    "storage_bucket": "pokemonfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706433915590:android:5531bc6f16604420",
+        "android_client_info": {
+          "package_name": "com.example.pokemonraids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706433915590-br34v7q4srfar3q83vt6otc8n8d7dbk8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokemonraids",
+            "certificate_hash": "35d2078afb505dee37c6bd267d605273ae0f5677"
+          }
+        },
+        {
+          "client_id": "706433915590-5v32mftp9hrq2k8bdk4eavaq2imdft48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjJTrCwiczCcftSrJlMdUY78PfIwiR82Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706433915590-5v32mftp9hrq2k8bdk4eavaq2imdft48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
