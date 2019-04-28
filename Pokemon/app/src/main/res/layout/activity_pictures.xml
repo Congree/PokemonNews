@@ -11,9 +11,10 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="468dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="142dp"
         android:src="@drawable/pokemon1" />
 
     <Button
@@ -23,6 +24,19 @@
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
-        android:text="Click here to Store/Save ImageView image in Gallery in android programmatically" />
+        android:text="Save to phone" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/imageView1"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="-130dp"
+        android:text="Photo of the week"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

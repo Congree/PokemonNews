@@ -77,7 +77,7 @@ public class PostDetailActivity extends AppCompatActivity {
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if os is >= marshmallow we need runtime permission to save image
+                //if os is >= marshmallow
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                     if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                             PackageManager.PERMISSION_DENIED){
@@ -174,7 +174,7 @@ public class PostDetailActivity extends AppCompatActivity {
         }
     }
 
-    //handle onBackPressed(go to previous activity)
+    //go to previous activity
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -188,7 +188,7 @@ public class PostDetailActivity extends AppCompatActivity {
                 //if request code is cancelled the result arrays are empty
                 if (grantResults.length > 0 && grantResults[0] ==
                         PackageManager.PERMISSION_GRANTED){
-                    //permission is granted, save image
+                    //save image
                     saveImage();
                 }
                 else {

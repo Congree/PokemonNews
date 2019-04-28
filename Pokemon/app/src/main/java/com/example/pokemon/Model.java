@@ -4,10 +4,9 @@ public class Model {
 
     String title, image, description;
 
-    //constructor
+
     public Model(){}
 
-    //getter and setters press Alt+Insert
 
     public String getTitle() {
         return title;

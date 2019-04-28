@@ -20,12 +20,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
 import java.io.ByteArrayOutputStream;
 
 public class PostsListActivity extends AppCompatActivity {
@@ -45,7 +43,7 @@ public class PostsListActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         //set title
         mSharedPref = getSharedPreferences("SortSettings", MODE_PRIVATE);
-        String mSorting = mSharedPref.getString("Sort", "newest"); //where if no settingsis selected newest will be default
+        String mSorting = mSharedPref.getString("Sort", "newest");  //where if no settings selected newest will be default
 
         if (mSorting.equals("newest")) {
             mLayoutManager = new LinearLayoutManager(this);
@@ -69,15 +67,12 @@ public class PostsListActivity extends AppCompatActivity {
         //send Query to FirebaseDatabase
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference("Data");
-
-
-
     }
 
     //search data
     private void firebaseSearch(String searchText) {
 
-        //convert string entered in SearchView to lowercase
+        //lowercase
         String query = searchText.toLowerCase();
 
         Query firebaseSearchQuery = mRef.orderByChild("search").startAt(query).endAt(query + "\uf8ff");
@@ -88,7 +83,9 @@ public class PostsListActivity extends AppCompatActivity {
                         R.layout.row,
                         ViewHolder.class,
                         firebaseSearchQuery
-                ) {
+                )
+
+                {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
                         viewHolder.setDetails(getApplicationContext(), model.getTitle(), model.getDescription(), model.getImage());
@@ -112,7 +109,7 @@ public class PostsListActivity extends AppCompatActivity {
                                 Drawable mDrawable = mImageView.getDrawable();
                                 Bitmap mBitmap = ((BitmapDrawable) mDrawable).getBitmap();
 
-                                //pass this data to new activity
+                                //pass data to new activity
                                 Intent intent = new Intent(getApplicationContext(), PostDetailActivity.class);
                                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
@@ -121,12 +118,11 @@ public class PostsListActivity extends AppCompatActivity {
                                 intent.putExtra("title", mTitle); // put title
                                 intent.putExtra("description", mDesc); //put description
                                 view.getContext().startActivity(intent); //start activity
-
                             }
 
                             @Override
                             public void onItemLongClick(View view, int position) {
-                                //TODO do your own implementaion on long item click
+                                //something
                             }
                         });
 
@@ -151,7 +147,8 @@ public class PostsListActivity extends AppCompatActivity {
                         R.layout.row,
                         ViewHolder.class,
                         mRef
-                ) {
+                )
+                {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
                         viewHolder.setDetails(getApplicationContext(), model.getTitle(), model.getDescription(), model.getImage());
@@ -181,17 +178,15 @@ public class PostsListActivity extends AppCompatActivity {
 
                                 //pass this data to new activity
                                 Intent intent = new Intent(view.getContext(), PostDetailActivity.class);
-                                intent.putExtra("image", bytes); //put bitmap image as array of bytes
-                                intent.putExtra("title", mTitle); // put title
-                                intent.putExtra("description", mDesc); //put description
-                                view.getContext().startActivity(intent); //start activity
-
-
+                                intent.putExtra("image", bytes);
+                                intent.putExtra("title", mTitle);
+                                intent.putExtra("description", mDesc);
+                                view.getContext().startActivity(intent);
                             }
 
                             @Override
                             public void onItemLongClick(View view, int position) {
-                                //TODO later
+                                //later
                             }
                         });
 
@@ -207,7 +202,7 @@ public class PostsListActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //inflate the menu; this adds items to the action bar if it present
+        //adds items to the action bar
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
@@ -220,7 +215,6 @@ public class PostsListActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //Filter as you type
                 firebaseSearch(newText);
                 return false;
             }
@@ -232,7 +226,7 @@ public class PostsListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //handle other action bar item clicks here
+        //handle other action bar items
         if (id == R.id.action_sort) {
             //display alert dialog to choose sorting
             showSortDialog();
@@ -254,7 +248,6 @@ public class PostsListActivity extends AppCompatActivity {
     }
 
     private void showSortDialog() {
-        //options to display in dialog
         String[] sortOptions = {" Newest", " Oldest"};
         //create alert dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -263,7 +256,7 @@ public class PostsListActivity extends AppCompatActivity {
                 .setItems(sortOptions, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // The 'which' argument contains the index position of the selected item
+
                         // 0 means "Newest" and 1 means "oldest"
                         if (which == 0) {
                             //sort by newest
@@ -286,17 +279,4 @@ public class PostsListActivity extends AppCompatActivity {
                 });
         builder.show();
     }
-
-//    private void showMore(){
-//        Button buttonMore = findViewById(R.id.more);
-//        buttonMore.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v){
-//                System.out.println("Clicked");
-//
-//                Intent activity2Intent = new Intent(getApplicationContext(), MoreStuff.class);
-//                startActivity(activity2Intent);
-//            }
-//        });
-//    }
-
 }
