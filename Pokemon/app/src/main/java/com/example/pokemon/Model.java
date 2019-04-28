@@ -1,4 +1,4 @@
-package com.example.pokemonraids;
+package com.example.pokemon;
 
 public class Model {
 

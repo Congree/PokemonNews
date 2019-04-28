@@ -1,4 +1,4 @@
-package com.example.pokemonraids;
+package com.example.pokemon;
 
 import android.app.WallpaperManager;
 import android.content.Intent;

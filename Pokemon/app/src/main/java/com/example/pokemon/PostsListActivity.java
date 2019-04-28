@@ -1,4 +1,4 @@
-package com.example.pokemonraids;
+package com.example.pokemon;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,10 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;

@@ -1,9 +1,8 @@
-package com.example.pokemonraids;
+package com.example.pokemon;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 public class MoreStuff extends AppCompatActivity {
 

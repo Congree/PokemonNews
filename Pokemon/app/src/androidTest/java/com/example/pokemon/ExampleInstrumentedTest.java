@@ -1,4 +1,4 @@
-package com.example.pokemonraids;
+package com.example.pokemon;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

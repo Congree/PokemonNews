@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pokemonraids">
+    package="com.example.pokemon">
     <!-- add internet permission -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- External storage permission -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Wallpaper permission -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
+
 
     <application
         android:allowBackup="true"
@@ -13,22 +14,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MoreStuff"
+        <activity android:name="com.example.pokemon.MoreStuff"
             android:label="Silph Road"
-            android:parentActivityName=".PostsListActivity"/>
+            android:parentActivityName="com.example.pokemon.PostsListActivity"/>
 
-        <activity android:name=".Pictures"
+        <activity android:name="com.example.pokemon.Pictures"
             android:label="Pictures"
-            android:parentActivityName=".PostsListActivity"/>
+            android:parentActivityName="com.example.pokemon.PostsListActivity"/>
 
-        <activity android:name=".PostsListActivity">
+        <activity android:name="com.example.pokemon.PostsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PostDetailActivity" />
+        <activity android:name="com.example.pokemon.PostDetailActivity" />
     </application>
 
 </manifest>
